@@ -3,8 +3,8 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { Component,ViewEncapsulation } from '@angular/core';
 ;
 declare var require: any;
-import { Salle } from '../../models/salle.model';
-import { SalleService } from '../../service/salle.service';
+import { User } from '../../models/user.model';
+import { UserService } from '../../service/user.service';
 
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
@@ -22,15 +22,15 @@ const data: any = require('../../shared/data/chartist.json');
 export class SmartTableComponent {
     
     currentdomaine = null;
-    pays:Salle[];
-    pay:Salle;
+    pays:User[];
+    pay:User;
     closeResult:string;
 
     constructor(private route:ActivatedRoute,
         private router:Router,
-        private userService:SalleService,
+        private userService:UserService,
         private modalService: NgbModal
-      )  { this.pay=new Salle();}
+      )  { this.pay=new User();}
 
   
 
@@ -52,11 +52,11 @@ export class SmartTableComponent {
 
 
     ngOnInit() {
-        this.userService.getListSalles().subscribe(data=>
+        this.userService.getListUsers().subscribe(data=>
           this.pays=data)
       }
       onSubmit(){
-        this.userService.addsalle(this.pay).subscribe
+        this.userService.addUser(this.pay).subscribe
         (result => this.gotoUserList());
       }
       gotoUserList() {
@@ -65,11 +65,11 @@ export class SmartTableComponent {
         
       }
       delete(id) {
-        this.userService.deleteSalle(id)
+        this.userService.deleteUser(id)
           .subscribe(response => {
             console.log(response);
           })
-          window.location.reload()
+         
       }
      
     

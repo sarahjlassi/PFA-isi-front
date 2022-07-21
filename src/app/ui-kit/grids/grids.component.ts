@@ -53,7 +53,7 @@ export class GridsComponent {
         .subscribe(response => {
           console.log(response);
         })
-        window.location.reload()
+        
     }
    
   

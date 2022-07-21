@@ -10,16 +10,16 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>Nom de la salle de réunion </th>
-      <th>capacité</th>
+      <th>Username</th>
+      <th>Email</th>
       <th class="text-center">Actions</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let Pays of pays">
       <td>{{ Pays.id }}</td>
-      <td>{{ Pays.libelle }}</td>
-      <td>{{ Pays.capacite }}</td>
+      <td>{{ Pays.username }}</td>
+      <td>{{ Pays.email }}</td>
       
       
       <td class="text-center">
@@ -42,7 +42,7 @@
 </table>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New salle</h4>
+    <h4 class="modal-title" id="modal-basic-title">New user</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -52,21 +52,21 @@
       <div class="card-body">
         <form (ngSubmit)="onSubmit()" #libelleForm="ngForm">
           <div class="form-group">
-            <label for="login">Libelle </label>
-            <input type="text" [(ngModel)]="pay.libelle" 
+            <label for="login">Username</label>
+            <input type="text" [(ngModel)]="pay.username" 
             class="form-control" 
             id="libelle" 
             name="libelle" 
-            placeholder="Enter  libelle "
+            placeholder="Enter  username "
             required>
         </div>
         <div class="form-group">
-          <label for="login">capacite </label>
-          <input type="text" [(ngModel)]="pay.capacite" 
+          <label for="login">Email </label>
+          <input type="text" [(ngModel)]="pay.email" 
           class="form-control" 
           id="capacite" 
           name="capacite" 
-          placeholder="Enter  capacite de la salle "
+          placeholder="Enter  l'email "
           required>
       </div>
        
@@ -87,7 +87,7 @@
     <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
   </div>
   <div class="modal-body">
-    <p>voulez vous supprimer la salle ?</p>
+    <p>voulez vous supprimer l'utilisateur' ?</p>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark"  (click)="c('Save click')"> oui </button>

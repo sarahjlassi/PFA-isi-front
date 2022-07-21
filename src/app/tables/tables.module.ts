@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { TablesRoutingModule } from "./tables-routing.module";
-
+import { FormsModule } from '@angular/forms';
 import { ExtendedTableComponent } from "./extended/extended-table.component";
 import { RegularTableComponent } from "./regular/regular-table.component";
 import { SmartTableComponent } from "./smart-data-table/smart-data-table.component";
@@ -12,7 +12,8 @@ import { SmartTableComponent } from "./smart-data-table/smart-data-table.compone
     imports: [
         CommonModule,
         TablesRoutingModule,
-        Ng2SmartTableModule
+        Ng2SmartTableModule,
+        FormsModule
     ],
     declarations: [
         ExtendedTableComponent,

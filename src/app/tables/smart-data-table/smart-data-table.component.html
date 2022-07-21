@@ -1,92 +1,95 @@
-<div class="row text-left">
-  <div class="col-12">
-    <div class="content-header">Smart Data Table</div>
-    <p class="content-sub-header">Smart data table library with sorting, filtering, pagination & add/edit/delete
-      functions.</p>
-  </div>
+
+
+<div  class="btn1">
+
+
+  <a  href="javascript:void(0)"mat-raised-button color="primary" (click)="open(content)" class="btn btn-raised gradient-mint white">Ajouter Salle</a>
 </div>
-<!--Simple Table Starts-->
-<section id="simple">
-  <div class="row text-left">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Simple Table</h4>
-        </div>
-        <div class="card-content">
-          <div class="card-body">
-            <div class="table-responsive">
-              <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Simple Table Ends-->
+<table class="table datatable-responsive">
+  
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom de la salle de réunion </th>
+      <th>capacité</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Pays of pays">
+      <td>{{ Pays.id }}</td>
+      <td>{{ Pays.libelle }}</td>
+      <td>{{ Pays.capacite }}</td>
+      
+      
+      <td class="text-center">
+        <div class="list-icons">
+          <div class="dropdown">
+      
+              
 
-<!--Advanced filter Starts-->
-<section id="advanced">
-  <div class="row text-left">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Advanced filter</h4>
-        </div>
-        <div class="card-content">
-          <div class="card-body">
-            <div class="table-responsive">
-              <input #search class="search mb-2" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
-              <ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
-            </div>
+      
+        <a href="javascript:void(0)" (click)=" delete(Pays.id)" (click)="open2(contentt)" class="btn btn-raised gradient-pomegranate white">Supprimer</a>
+        
+        
+  
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!--Advanced filter Ends-->
+      </td>
+    </tr>
 
-<!--built-in column filter types Starts-->
-<section id="filter">
-  <div class="row text-left">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">built-in column filter types</h4>
+  </tbody>
+</table>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New salle</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card my-5">
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #libelleForm="ngForm">
+          <div class="form-group">
+            <label for="login">Libelle </label>
+            <input type="text" [(ngModel)]="pay.libelle" 
+            class="form-control" 
+            id="libelle" 
+            name="libelle" 
+            placeholder="Enter  libelle "
+            required>
         </div>
-        <div class="card-content">
-          <div class="card-body">
-            <div class="table-responsive">
-              <ng2-smart-table [settings]="filtersettings" [source]="filterSource"></ng2-smart-table>
-            </div>
-          </div>
-        </div>
+        <div class="form-group">
+          <label for="login">capacite </label>
+          <input type="text" [(ngModel)]="pay.capacite" 
+          class="form-control" 
+          id="capacite" 
+          name="capacite" 
+          placeholder="Enter  capacite de la salle "
+          required>
       </div>
+       
+        <div class="modal-footer">
+          <a href="javascript:void(0)" class="btn btn-raised gradient-ibiza-sunset"  (click)="onSubmit()" (click)="modal.close('Save click')">Submit</a>
+        </div>
+      </form>
     </div>
   </div>
-</section>
-<!--built-in column filter types Ends-->
+  
+  </div>
+ 
+</ng-template>
 
-<!--Confirm Action Starts-->
-<section id="action">
-  <div class="row text-left">
-    <div class="col-sm-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Confirm Action</h4>
-        </div>
-        <div class="card-content">
-          <div class="card-body">
-            <div class="table-responsive">
-              <ng2-smart-table [settings]="alertsettings" [source]="alertSource" (deleteConfirm)="onDeleteConfirm($event)"
-                (editConfirm)="onSaveConfirm($event)" (createConfirm)="onCreateConfirm($event)"></ng2-smart-table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<ng-template #contentt let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Bonjour</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="d('Cross click')"></button>
   </div>
-</section>
-<!--Confirm Action Ends-->
+  <div class="modal-body">
+    <p>voulez vous supprimer la salle ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark"  (click)="c('Save click')"> oui </button>
+  </div>
+</ng-template>

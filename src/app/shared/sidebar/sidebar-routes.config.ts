@@ -1,10 +1,10 @@
 import { RouteInfo } from './sidebar.metadata';
-
 //Sidebar menu Routes and data
+test : Boolean;
 export const ROUTES: RouteInfo[] = [
 
-    {
-        path: '/tables/smart', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [],
+    { 
+        path: '/tables/smart', title: 'Dashboard', icon: 'ft-home', class: '', badge: '', badgeClass: '', isExternalLink: false,submenu: [] ,
     
       },
        {
@@ -14,14 +14,7 @@ export const ROUTES: RouteInfo[] = [
 
         
     },
-    {
-        path: '', title: 'Webservice', icon: 'ft-aperture', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
-        submenu: [
-            {
-                path: '/wsxapp/webservice', title: 'Webservice', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: []
-            }
-        ]
-    },
+   
     {
         path: '', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
         submenu: [

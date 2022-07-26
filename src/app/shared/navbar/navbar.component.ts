@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ConfigService } from '../services/config.service';
 import {AuthService} from '../auth/auth.service';
 import {Router} from '@angular/router';
+import { TokenStorageService } from 'app/service/token-storage.service';
 
 @Component({
   selector: "app-navbar",
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public config: any = {};
 
-  constructor(public translate: TranslateService, private layoutService: LayoutService, private configService:ConfigService, private auth:AuthService,private router: Router) {
+  constructor(public translate: TranslateService, private token : TokenStorageService  , private layoutService: LayoutService, private configService:ConfigService, private auth:AuthService,private router: Router) {
     const browserLang: string = translate.getBrowserLang();
     translate.use(browserLang.match(/en|es|pt|de/) ? browserLang : "en");
 
@@ -42,9 +43,10 @@ export class NavbarComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   logout(){
-    this.auth.logout();
-    this.router.navigate(["/pages/login"])
-  }
+    localStorage.clear();
+    this.router.navigate(["/pages/login"]);
+    }
+  
 
   ngAfterViewInit() {
     if(this.config.layout.dir) {

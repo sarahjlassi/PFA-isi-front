@@ -6,8 +6,13 @@ import { UIKitRoutingModule } from "./ui-kit-routing.module";
 import { MatchHeightModule } from "../shared/directives/match-height.directive"
 
 import { GridsComponent } from "./grids/grids.component";
+import { HttpClientModule } from '@angular/common/http';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import interactionPlugin from '@fullcalendar/interaction';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { CalendrierComponent } from './calendrier/calendrier.component';
+FullCalendarModule.registerPlugins([interactionPlugin, dayGridPlugin]);
 
-;
 
 @NgModule({
     imports: [
@@ -15,10 +20,13 @@ import { GridsComponent } from "./grids/grids.component";
         UIKitRoutingModule,
         FormsModule,
         ReactiveFormsModule,
-        MatchHeightModule
+        MatchHeightModule,
+        FullCalendarModule,
+    HttpClientModule,
     ],
     declarations: [
         GridsComponent,
+        CalendrierComponent,
       
     ]
 })

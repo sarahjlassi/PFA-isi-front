@@ -29,17 +29,19 @@ export class GridsComponent {
     pays:Salle[];
     pay:Salle;
     closeResult:string;
-    resers:Reservation[];
+   
     constructor(private route:ActivatedRoute,
       private router:Router,
       private userService:SalleService,
-      private reservationService:ReservationService,
+   
       private modalService: NgbModal
     )  { this.pay=new Salle();}
   
   
     ngOnInit() {
       this.userService.getListSalles().subscribe(data=>this.pays=data)
+      
+     
     }
     onSubmit(){
       this.userService.addsalle(this.pay).subscribe

@@ -339,7 +339,7 @@
 
 "@fullcalendar/angular@^5.11.0":
   "integrity" "sha512-jj/VrtDwWkaCeXM30OYWjgvHtC4HUP4KBBcgctcLu2MNJ2t35MMIwGBA22ATOswpa9vjqRxLa6lrWv9W66bXzA=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/angular/-/angular-5.11.0.tgz"
+  "resolved" "https://registry.npmmirror.com/@fullcalendar/angular/-/angular-5.11.0.tgz"
   "version" "5.11.0"
   dependencies:
     "@fullcalendar/core" "~5.11.0"
@@ -364,7 +364,7 @@
 
 "@fullcalendar/daygrid@^5.11.0":
   "integrity" "sha512-Ybh/dfHn/VL0qOVIRVyJc9I8oYiqqHl6xQONk8xXCe456QbPzAQLsAxpLLJLH+3smWNCfoQgvDKzR9e9XTzLMQ=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/daygrid/-/daygrid-5.11.0.tgz"
+  "resolved" "https://registry.npmmirror.com/@fullcalendar/daygrid/-/daygrid-5.11.0.tgz"
   "version" "5.11.0"
   dependencies:
     "@fullcalendar/common" "~5.11.0"
@@ -372,7 +372,7 @@
 
 "@fullcalendar/interaction@^5.11.0":
   "integrity" "sha512-9XTI5+ydqrSX+IL3iWgKBURXfnPewn57Tmsv9mJZhiqrUEF7/+qtftLoKEAc8ZdWk/+01aBe67PFL16uPXj2Jg=="
-  "resolved" "https://registry.npmjs.org/@fullcalendar/interaction/-/interaction-5.11.0.tgz"
+  "resolved" "https://registry.npmmirror.com/@fullcalendar/interaction/-/interaction-5.11.0.tgz"
   "version" "5.11.0"
   dependencies:
     "@fullcalendar/common" "~5.11.0"

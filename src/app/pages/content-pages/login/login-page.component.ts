@@ -57,10 +57,10 @@ export class LoginPageComponent implements OnInit {
 
             if(this.roles[0]=='ROLE_USER'){
       
-            this._router.navigate(['/dashboard/dashboard1'])}
+            this._router.navigate(['/pages/error'])}
       
             else if (this.roles[0]=='ROLE_ADMIN'){
-              this._router.navigate(['/pages/error'])
+              this._router.navigate(['/tables/smart'])
       
             }
       

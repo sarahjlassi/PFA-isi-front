@@ -56,7 +56,7 @@ export class SmartTableComponent {
           this.pays=data)
       }
       onSubmit(){
-        this.userService.adduser(this.pay).subscribe
+        this.userService.addUser(this.pay).subscribe
         (result => this.gotoUserList());
       }
       gotoUserList() {

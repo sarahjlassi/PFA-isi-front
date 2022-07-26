@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {User} from '../../wsxapp/Models/user.model';
+import {User} from '../../models/user.model';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 @Injectable()

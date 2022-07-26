@@ -1,5 +1,4 @@
-import * as tableData from '../../shared/data/smart-data-table';
-import { LocalDataSource } from 'ng2-smart-table';
+
 import { Component,ViewEncapsulation } from '@angular/core';
 ;
 declare var require: any;
@@ -31,32 +30,12 @@ export class SmartTableComponent {
         private userService:UserService,
         private modalService: NgbModal
       )  { this.pay=new User();}
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     ngOnInit() {
         this.userService.getListUsers().subscribe(data=>
           this.pays=data)
       }
       onSubmit(){
-        this.userService.addUser(this.pay).subscribe
+        this.userService.adduser(this.pay).subscribe
         (result => this.gotoUserList());
       }
       gotoUserList() {

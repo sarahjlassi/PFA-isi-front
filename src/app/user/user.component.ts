@@ -19,11 +19,13 @@ export class UserComponent implements OnInit {
   roles: string[] = [];
 
   constructor(private authService: AuthService, private _router: Router, private tokenStorage: TokenStorageService) { }
-  
+  currentPage: string ="TimeLine"
   ngOnInit() {
     this.username=this.tokenStorage.getUser().username;
     this.email=this.tokenStorage.getUser().email;
     console.log( this.username);
   }
-
+  showPage(page: string) {
+    this.currentPage = page;
+}
 }

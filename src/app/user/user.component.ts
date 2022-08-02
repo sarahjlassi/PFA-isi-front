@@ -26,8 +26,10 @@ export class UserComponent implements OnInit {
   username:any;
   email:any;
   taille:any;
+  capacite:any;
+  show:boolean=false;
   roles: string[] = [];
-
+reservationchecked:any;
   constructor(private authService: AuthService, private ReservationService:ReservationService,private _router: Router, private tokenStorage: TokenStorageService) { }
   currentPage: string ="TimeLine"
   ngOnInit() {
@@ -49,7 +51,20 @@ export class UserComponent implements OnInit {
     this.currentPage = page;
 }
 
+check(reservation){
+this.reservationchecked=reservation;
+}
 
+verif(){
+  console.log("hello",this.show,this.reservationchecked!.salle!.capacite,this.capacite)
+  if (this.reservationchecked!.salle!.capacite <this.capacite){
+    console.log(this.show)
+    this.show=true
+    alert("changer salle")
+    console.log(this.show)
+  }
+
+}
 submit(){
   console.log(this.dateR)
   console.log(this.resers)

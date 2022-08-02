@@ -94,9 +94,14 @@
                               <div class="form-card">
                                   <h2 class="fs-title">Date de Réunion</h2>
 
-                               <input type="date"  [(ngModel)]="dateR"   name="dateofbirth" id="dateofbirth">
+                               <input type="date"  [(ngModel)]="dateR" (change)="submit()"  name="dateofbirth" id="dateofbirth">
+                               <div class="" *ngFor="let res of resers">
+                        <div class="row" *ngIf="dateR!=res.date">
+                          <div (click)="check(res)">{{ res.salle.libelle }}</div>
+                        </div>
+                               </div>
                               </div>
-                              <input type="button" name="next" (click)="submit()"  class="next action-button" value="Next Step"/>
+                              <input type="button" name="next"   class="next action-button" value="Next Step"/>
                           </fieldset>
 
 
@@ -106,11 +111,17 @@
                                   <h2 class="fs-title">Capacité du salle </h2>
                                  
                                   <label class="pay">Nombre de Personnes </label>
-                                  <input type="text" name="holdername" placeholder=""/>
-                                 
+                                  <input [(ngModel)]="capacite"  type="text" name="holdername" placeholder=""/>
+                                 <div *ngIf="show">
+                                  <div class="" *ngFor="let res of resers">
+                                    <div class="row" *ngIf="dateR!=res.date && capacite< res.salle.capacite" >
+                                      <div (click)="check(res)">{{ res.salle.libelle }}</div>
+                                    </div>
+                                           </div>
+                                 </div>
                               </div>
                               <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                              <input type="button" name="make_payment" class="next action-button" value="Confirm"/>
+                              <input type="button" name="make_payment" (change)="verif()" class="next action-button" value="Confirm"/>
                           </fieldset>
                           <fieldset>
                               <div class="form-card">

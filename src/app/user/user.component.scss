@@ -206,6 +206,7 @@ select.list-dt:focus {
 #progressbar #account:before {
     font-family: FontAwesome;
     content: "\f023";
+
 }
 
 #progressbar #personal:before {
@@ -233,8 +234,10 @@ select.list-dt:focus {
     color: #ffffff;
     background: lightgray;
     border-radius: 50%;
+   
     margin: 0 auto 10px auto;
     padding: 2px;
+    
 }
 
 /*ProgressBar connectors*/

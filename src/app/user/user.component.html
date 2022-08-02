@@ -85,38 +85,22 @@
                           <!-- progressbar -->
                           <ul id="progressbar">
                               <li class="active" id="account"><strong>Date</strong></li>
-                              <li id="personal"><strong>Heure</strong></li>
+                          
                               <li id="payment"><strong>Capacite</strong></li>
                               <li id="confirm"><strong>Finish</strong></li>
                           </ul>
-                          <!-- fieldsets -->
+                          <!-- date -->
                           <fieldset>
                               <div class="form-card">
                                   <h2 class="fs-title">Date de Réunion</h2>
 
-                               <input type="date" name="dateofbirth" id="dateofbirth">
+                               <input type="date"  [(ngModel)]="dateR"   name="dateofbirth" id="dateofbirth">
                               </div>
-                              <input type="button" name="next" class="next action-button" value="Next Step"/>
+                              <input type="button" name="next" (click)="submit()"  class="next action-button" value="Next Step"/>
                           </fieldset>
-                          <fieldset>
-                              <div class="form-card">
-                                  <h2 class="fs-title">Les Horaires </h2>
-                                  
-                                  <input type="text" name="lname" placeholder="Last Name"/>
-              
 
 
 
-
-
-
-
-
-
-                              </div>
-                              <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                              <input type="button" name="next" class="next action-button" value="Next Step"/>
-                          </fieldset>
                           <fieldset>
                               <div class="form-card">
                                   <h2 class="fs-title">Capacité du salle </h2>

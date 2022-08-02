@@ -58,10 +58,11 @@ this.reservationchecked=reservation;
 verif(){
   console.log("hello",this.show,this.reservationchecked!.salle!.capacite,this.capacite)
   if (this.reservationchecked!.salle!.capacite <this.capacite){
-    console.log(this.show)
+    console.log("avant",this.show)
     this.show=true
+    console.log("apres",this.show)
     alert("changer salle")
-    console.log(this.show)
+   
   }
 
 }

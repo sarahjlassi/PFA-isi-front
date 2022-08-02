@@ -8,7 +8,14 @@ import { TokenStorageService } from 'app/service/token-storage.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  
+  date :Date=new Date();
+  settings={
+    bigBanner:true,
+    timePicker:true,
+    format:'dd-MM-yyyy hh:mm a',
+    defaultOpen:'false',
+    closeOnSelect:false
+  }
   showAdminBoard = false;
   showUserBoard = false;
   username:any;

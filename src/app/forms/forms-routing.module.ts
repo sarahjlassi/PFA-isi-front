@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { ValidationFormsComponent } from "./validation/validation-forms.component";
+
 import { BasicComponent } from './layouts/basic/basic.component';
 import { HorizontalComponent } from './layouts/horizontal/horizontal.component';
 import { HiddenLabelsComponent } from './layouts/hidden-labels/hidden-labels.component';
@@ -80,17 +80,8 @@ const routes: Routes = [
           title: 'Input Grid'
         }
       },
-      {
-        path: 'validation',
-        component: ValidationFormsComponent,
-        data: {
-          title: 'Validation Forms'
-        }
-      },       
-      {
-        path: 'ngx',
-        loadChildren: () => import('./ngx-wizard/ngx-wizard.module').then(m => m.NGXFormWizardModule)
-      },
+            
+      
       {
         path: 'archwizard',
         component: ArchwizardComponent,

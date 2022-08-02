@@ -173,6 +173,17 @@ select.list-dt:focus {
   [type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
   }
+  .profile-menu{
+    .active{
+        border-bottom: 2px solid;
+        margin-bottom: -2px;
+    }
+}
+#about{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+}
   
   /* custom styles */
   body {

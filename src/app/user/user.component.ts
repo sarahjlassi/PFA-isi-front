@@ -5,6 +5,7 @@ import { TokenStorageService } from 'app/service/token-storage.service';
 import{ReservationService} from '../service/reservation.service';
 import { Reservation } from 'app/models/reservation.model';
 import { NgbPaginationNumber } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -13,7 +14,7 @@ import { NgbPaginationNumber } from '@ng-bootstrap/ng-bootstrap';
 export class UserComponent implements OnInit {
   resers:any;
   Ndispo:any[]=[];
- 
+  res:any;
   date :Date=new Date();
   settings={
     bigBanner:true,
@@ -30,8 +31,12 @@ export class UserComponent implements OnInit {
   show:boolean=false;
   roles: string[] = [];
 reservationchecked:any;
-  constructor(private authService: AuthService, private ReservationService:ReservationService,private _router: Router, private tokenStorage: TokenStorageService) { }
-  currentPage: string ="TimeLine"
+  constructor(private authService: AuthService, 
+              private ReservationService:ReservationService,
+              private _router: Router, 
+              private tokenStorage: TokenStorageService) { this.res=new Reservation();}
+  currentPage: string ="TimeLine";
+ 
   ngOnInit() {
     this.ReservationService.getListReservations().subscribe(
         
@@ -53,8 +58,22 @@ reservationchecked:any;
 
 check(reservation){
 this.reservationchecked=reservation;
+this.res.salle=this.reservationchecked.salle;
+this.res.propritaire=this.tokenStorage.getUser().username;
+console.log(this.res)
 }
 
+
+add(){
+  console.log(this.res);
+this.ReservationService.addReservation(this.res).subscribe(result => this.gotoUserList());
+}
+gotoUserList() {
+  this._router.navigate(['/dashboard/dashboard1']);
+  window.location.reload()
+  
+
+}
 verif(){
   console.log("hello",this.show,this.reservationchecked!.salle!.capacite,this.capacite)
   if (this.reservationchecked!.salle!.capacite <this.capacite){
@@ -64,12 +83,18 @@ verif(){
     alert("changer salle")
    
   }
+  else 
+  alert (" salle valable pour votre capacite");
+  this.res.nbPersonnes=this.capacite;
+  
 
 }
 submit(){
   console.log(this.dateR)
   console.log(this.resers)
   console.log( this.taille)
+  this.res.date=this.dateR;
+  
   for(let i=0;i<=this.taille;i++){
    
     if(this.resers[i].date==this.dateR){

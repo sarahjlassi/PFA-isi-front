@@ -31,8 +31,10 @@ export class SmartTableComponent {
         private modalService: NgbModal
       )  { this.pay=new User();}
     ngOnInit() {
+      
         this.userService.getListUsers().subscribe(data=>
-          this.pays=data)
+          this.pays=data);
+          console.log("hhhhhhhh",data);
       }
       onSubmit(){
         this.userService.adduser(this.pay).subscribe
@@ -71,6 +73,9 @@ export class SmartTableComponent {
         } else {
           return `with: ${reason}`;
         }
+
+
+        
       }
 
 

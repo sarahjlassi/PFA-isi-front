@@ -43,6 +43,9 @@ export class GridsComponent {
       
      
     }
+    refrech(){
+      window.location.reload()
+    }
     onSubmit(){
       this.userService.addsalle(this.pay).subscribe
       (result => this.gotoUserList());

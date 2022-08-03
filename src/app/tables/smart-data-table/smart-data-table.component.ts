@@ -48,9 +48,11 @@ export class SmartTableComponent {
           .subscribe(response => {
             console.log(response);
           })
-         
+          
       }
-     
+      refrech(){
+        window.location.reload()
+      }
     
       open2(contentt) {
         this.modalService.open(contentt);

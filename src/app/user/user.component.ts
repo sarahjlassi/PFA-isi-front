@@ -15,6 +15,8 @@ export class UserComponent implements OnInit {
   resers:any;
   Ndispo:any[]=[];
   res:any;
+  test1:boolean=false;
+  test2:boolean=false;
   date :Date=new Date();
   settings={
     bigBanner:true,
@@ -80,11 +82,11 @@ verif(){
     console.log("avant",this.show)
     this.show=true
     console.log("apres",this.show)
-    alert("changer salle")
+    
    
   }
   else 
-  alert (" salle valable pour votre capacite");
+  this.test1=true;
   this.res.nbPersonnes=this.capacite;
   
 

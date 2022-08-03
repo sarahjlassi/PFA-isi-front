@@ -113,7 +113,19 @@
                                  
                                   <label class="pay">Nombre de Personnes </label>
                                   <input [(ngModel)]="capacite"  (change)="verif()" type="text" name="holdername" placeholder=""/>
-                                 <div *ngIf="show">
+                                
+                                <div *ngIf="test1">
+
+                                    <ngb-alert class="alert"  type="success" >
+                                        <strong>Success!</strong> cette salle est valable pour votre réunion .
+                                    </ngb-alert>
+                                </div>
+
+                                
+                                  <div *ngIf="show">
+                                    <ngb-alert class="alert" type="danger" [dismissible]="false">
+                                        <strong>Attention!</strong> choisir une autre salle .
+                                    </ngb-alert>
                                   <h6>Les Autres salles disponibles selon vous conditions </h6>
                                   <div  *ngFor="let res of resers">
                                     

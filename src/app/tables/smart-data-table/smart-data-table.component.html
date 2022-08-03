@@ -106,13 +106,14 @@
 
     <div class="form-group">
     <label for="login">ROLE:</label>
-    <input list="browsers" name="browser" id="browser"    class="form-control" 
+    <input list="browsers" [(ngModel)]=" pay.roles" name="browser" id="browser"    class="form-control" 
     id="capacite" 
     name="capacite" 
     placeholder="Enter  le role   "
-    required>
+    required
+   >
     
-    <datalist id="browsers" >
+    <datalist id="browsers"  >
       <option value="ROLE_USER">
       <option value="ROLE_ADMIN">
     

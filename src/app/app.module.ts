@@ -10,6 +10,7 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { StoreModule } from "@ngrx/store";
+import { FormsModule  } from "@angular/forms";
 
 import { 
   PerfectScrollbarModule, 
@@ -46,6 +47,7 @@ export function createTranslateLoader(http: HttpClient) {
     AngularDateTimePickerModule,
     HttpClientModule,
     ToastrModule.forRoot(),
+    FormsModule,
     TabsModule.forRoot(),
     NgbModule.forRoot(),
     TranslateModule.forRoot({

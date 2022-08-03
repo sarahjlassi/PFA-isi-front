@@ -98,7 +98,7 @@
                                <h4 class="fs-title"> Les Salles de Réunions</h4>
                                <div class="salle" *ngFor="let res of resers">
                         <div class="row" *ngIf="dateR!=res.date">
-                          <div (click)="check(res)">{{ res.salle.libelle }}</div>
+                          <div (click)="check(res)">{{ res.salle.libelle }} {{ res.timein }} {{ res.timeOut }}</div>
                         </div>
                                </div>
                               </div>
@@ -119,7 +119,7 @@
                                     
                                     
                                     <div class="row" *ngIf=" dateR!=res.date && capacite<=res.salle.capacite" >
-                                      <div (click)="check(res)">{{ res.salle.libelle }}</div>
+                                      <div (click)="check(res)">{{ res.salle.libelle }} </div>
                                     </div>
                                            </div>
                                  </div>

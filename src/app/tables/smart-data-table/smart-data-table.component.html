@@ -24,8 +24,8 @@
     <tr *ngFor="let Pays of pays">
       <td>{{ Pays.id }}</td>
       <td>{{ Pays.username }}</td>
-      <td>{{ Pays.email}}</td>
-      <td>{{ Pays.roles.name}}</td>
+      <td>{{ Pays.email }} </td>
+      <td>{{ Pays.roles[0].name}}</td>
       
       
       <td class="text-center">
@@ -104,14 +104,6 @@
 
 
 
-     <!-- <div class="form-group">
-        <label for="login">Password </label>
-        <input type="text" [(ngModel)]="pay.password" 
-       >
-    </div> -->
-
-
-
     <div class="form-group">
     <label for="login">ROLE:</label>
     <input list="browsers" name="browser" id="browser"    class="form-control" 
@@ -120,9 +112,9 @@
     placeholder="Enter  le role   "
     required>
     
-    <datalist id="browsers" *ngFor="let Pays of pays">
-      <option value={{ Pays.roles[]}}>
-      <option value="Firefox">
+    <datalist id="browsers" >
+      <option value="ROLE_USER">
+      <option value="ROLE_ADMIN">
     
     </datalist>
     

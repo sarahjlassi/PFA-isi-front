@@ -95,6 +95,13 @@
                                   <h2 class="fs-title">Date de Réunion</h2>
 
                                <input type="date"  [(ngModel)]="dateR" (change)="submit()"  name="dateofbirth" id="dateofbirth">
+
+
+                                
+                                            <input type="datetime-local" id="meeting-time"
+                                            name="meeting-time" value="2022-08-12T08:00"
+                                            >
+
                                <h4 class="fs-title"> Les Salles de Réunions</h4>
                                <div class="salle" *ngFor="let res of resers">
                         <div class="row" *ngIf="dateR!=res.date">

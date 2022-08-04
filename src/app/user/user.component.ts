@@ -5,7 +5,7 @@ import { TokenStorageService } from 'app/service/token-storage.service';
 import{ReservationService} from '../service/reservation.service';
 import { Reservation } from 'app/models/reservation.model';
 import { NgbPaginationNumber } from '@ng-bootstrap/ng-bootstrap';
-
+import { DatePipe } from '@angular/common'
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -15,16 +15,12 @@ export class UserComponent implements OnInit {
   resers:any;
   Ndispo:any[]=[];
   res:any;
+  heureD:Date=new Date();
+  heureF:Date=new Date();
   test1:boolean=false;
   test2:boolean=false;
-  date :Date=new Date();
-  settings={
-    bigBanner:true,
-    timePicker:true,
-    format:'dd-MM-yyyy hh:mm a',
-    defaultOpen:'false',
-    closeOnSelect:false
-  };
+  date :Date
+Date=new Date().toISOString();
   dateR:any;
   username:any;
   email:any;
@@ -36,7 +32,8 @@ reservationchecked:any;
   constructor(private authService: AuthService, 
               private ReservationService:ReservationService,
               private _router: Router, 
-              private tokenStorage: TokenStorageService) { this.res=new Reservation();}
+              private tokenStorage: TokenStorageService,
+              public datepipe: DatePipe) { this.res=new Reservation();}
   currentPage: string ="TimeLine";
  
   ngOnInit() {
@@ -65,7 +62,14 @@ this.res.propritaire=this.tokenStorage.getUser().username;
 console.log(this.res)
 }
 
+change()
+{
+ 
+  
 
+  this.res.timein=this.datepipe.transform(this.heureD, 'yyyy-MM-dd HH:mm:ss.SSS');
+  this.res.timeout= this.datepipe.transform(this.heureF, 'yyyy-MM-dd HH:mm:ss.SSS');
+}
 add(){
   console.log(this.res);
 this.ReservationService.addReservation(this.res).subscribe(result => this.gotoUserList());

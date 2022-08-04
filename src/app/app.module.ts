@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-
+import { DatePipe } from '@angular/common';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { SharedModule } from "./shared/shared.module";
@@ -46,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule,
     AngularDateTimePickerModule,
     HttpClientModule,
+    
     ToastrModule.forRoot(),
     FormsModule,
     TabsModule.forRoot(),
@@ -65,6 +66,7 @@ export function createTranslateLoader(http: HttpClient) {
   providers: [
     AuthService,
     AuthGuard,
+    DatePipe,
     DragulaService,
     {
       provide: PERFECT_SCROLLBAR_CONFIG,

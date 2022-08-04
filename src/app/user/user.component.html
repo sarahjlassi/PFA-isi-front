@@ -98,7 +98,21 @@
                                <h4 class="fs-title"> Les Salles de Réunions</h4>
                                <div class="salle" *ngFor="let res of resers">
                         <div class="row" *ngIf="dateR!=res.date">
-                          <div (click)="check(res)">{{ res.salle.libelle }} {{ res.timein }} {{ res.timeOut }}</div>
+                          <div (click)="check(res)">
+                            
+                            <br>
+                            
+                             <span class="badge badge-primary">{{ res.salle.libelle }} </span> est réservée de 
+                        
+                        
+                        <span class="badge badge-success">{{ res.timein }}</span> ==>
+
+                        <span class="badge badge-warning"> {{ res.timeout}}</span>
+                        
+                       <br>
+                       <br>
+                        
+                        </div>
                         </div>
                                </div>
                               </div>

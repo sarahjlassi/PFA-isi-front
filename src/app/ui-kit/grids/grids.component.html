@@ -45,7 +45,7 @@
             </button>
           
   
-            <button type="button" class="btn btn-raised btn-round mr-1 btn-success" (click)="open2(contentt)"  (click)=" delete(Pays.id)">
+            <button type="button" class="btn btn-raised btn-round mr-1 btn-success" (click)="open2(contentnew)"  (click)=" delete(Pays.id)">
   
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
                 <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
@@ -63,7 +63,7 @@
 </table>
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">New salle</h4>
+    <h4 class="modal-title" id="modal-basic-title">Ajouter une salle</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -109,6 +109,50 @@
 </ng-template>
 
 <h2 class="background double"><span>Check your calendar !</span></h2>
+
+
+
+
+
+
+
+<ng-template #contentnew let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Modifier une salle</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card my-5">
+      <div class="card-body">
+        <form (ngSubmit)="onSubmit()" #libelleForm="ngForm">
+          <div class="form-group">
+            <label for="login">Libelle </label>
+            <input type="text" [(ngModel)]="pay.libelle" class="form-control" id="libelle" name="libelle"
+              placeholder="Enter  libelle " required>
+          </div>
+          <div class="form-group">
+            <label for="login">capacite </label>
+            <input type="text" [(ngModel)]="pay.capacite" class="form-control" id="capacite" name="capacite"
+              placeholder="Enter  capacite de la salle " required>
+          </div>
+
+          <div class="modal-footer">
+            <a href="javascript:void(0)" class="btn btn-raised gradient-ibiza-sunset" 
+              (click)="modal.close('Save click')">Submit</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</ng-template>
+
+
+
+
 
 
 

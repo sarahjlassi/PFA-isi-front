@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
         
     },
    
-    {
+  /*  {
         path: '', title: 'Components', icon: 'ft-box', class: 'has-sub', badge: '', badgeClass: '', isExternalLink: false,
         submenu: [
 
@@ -114,5 +114,5 @@ export const ROUTES: RouteInfo[] = [
             { path: '/pages/profile', title: 'User Profile', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             
         ]
-    },
+    },*/
 ];

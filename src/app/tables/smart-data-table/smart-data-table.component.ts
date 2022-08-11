@@ -39,17 +39,37 @@ export class SmartTableComponent {
           
       }
 
-      
+      edit(User: User){
+        this.pay = User;
+      }
 
       onSubmit(){
+        let rol=this.pay.roles
+        console.log(rol)
+    
         this.userService.adduser(this.pay).subscribe
         (result => this.gotoUserList());
       }
       gotoUserList() {
         this.router.navigate(['/dashboard/dashboard1']);
-        window.location.reload()
+        
         
       }
+
+      updateStudent(id){
+        console.log(this.pay)
+        this.userService.updateUser(this.pay,id).subscribe(
+          (resp) => {
+            console.log(resp);
+          },
+          (err) => {
+            console.log(err);
+          }
+        );
+    
+        console.log(this.pay);
+      }
+    
       delete(id) {
         this.userService.deleteUser(id)
           .subscribe(response => {

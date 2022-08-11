@@ -94,7 +94,7 @@
                               <div class="form-card">
                                   <h2 class="fs-title">Date de Réunion</h2>
 
-                               <input type="date"  [(ngModel)]="dateR" (change)="submit()"  name="dateofbirth" id="dateofbirth">
+                         
 
 
                                 
@@ -106,18 +106,15 @@
                                             >
 
                                <h4 class="fs-title"> Les Salles de Réunions</h4>
-                               <div class="salle" *ngFor="let res of resers">
-                        <div class="row" *ngIf="dateR!=res.date">
+                               <div class="salle" >
+                        <div class="row">
                           <div (click)="check(res)">
                             
                             <br>
                             
-                             <span class="badge badge-primary">{{ res.salle.libelle }} </span> est réservée de 
+                             <span class="badge badge-primary"> </span> 
                         
                         
-                        <span class="badge badge-success">{{ res.timein }}</span> ==>
-
-                        <span class="badge badge-warning"> {{ res.timeout}}</span>
                         
                        <br>
                        <br>

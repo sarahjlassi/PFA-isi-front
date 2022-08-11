@@ -106,8 +106,8 @@ export class GridsComponent {
     console.log("valuejjjjj = ",val)
   }*/
 
-  updateStudent(){
-    this.userService.updateSalle(this.pay, this.pay.id).subscribe(
+  updateStudent(id){
+    this.userService.updateSalle(this.pay,id).subscribe(
       (resp) => {
         console.log(resp);
       },

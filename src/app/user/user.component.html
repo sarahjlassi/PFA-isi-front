@@ -92,6 +92,15 @@
                           <!-- date -->
                           <fieldset>
                               <div class="form-card">
+
+
+                                <div class="form-group">
+                                    <label for="login">Titre de réunion</label>
+                                    <input type="text" [(ngModel)]="res.titre" class="form-control" id="libelle" name="libelle"
+                                      placeholder="Enter  libelle " required>
+                                  </div>  
+
+
                                   <h2 class="fs-title">Date de Réunion</h2>
 
                          
@@ -112,7 +121,7 @@
                             
                             <br>
                             
-                             <span class="badge badge-primary"> </span> 
+                             <span class="badge badge-primary">   {{ salle.libelle }} </span> 
                         
                         
                         

@@ -37,7 +37,7 @@ resers:any;
       
       this.resers=data
       for(let i=0; i < this.resers.length; i++){
-        this.Events.push({ title: this.resers[i].salle.libelle, start: this.resers[i].timein, end: this.resers[i].timeout , display: 'color'})
+        this.Events.push({ title: this.resers[i].titre , start: this.resers[i].timein, end: this.resers[i].timeout , display: 'color'})
 
       }
 

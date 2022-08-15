@@ -3,7 +3,7 @@ import { Salle } from "./salle.model";
 
 export class Reservation {
     id!: number;
-    Date!:Date;
+    titre!:string;
     timein!:string;
     timeOut!:string;
     nbPersonnes!:number;

@@ -13,7 +13,7 @@
   
   <thead>
     <tr>
-      <th>Id</th>
+      
       <th>Username</th>
       <th>Email</th>
       <th>Role</th>
@@ -22,7 +22,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let Pays of pays">
-      <td>{{ Pays.id }}</td>
+   
       <td>{{ Pays.username }}</td>
       <td>{{ Pays.email }} </td>
       <td>{{ Pays.roles[0].name}}</td>
@@ -103,23 +103,6 @@
 
 
 
-
-    <div class="form-group">
-    <label for="login">ROLE:</label>
-    <input list="browsers" [(ngModel)]=" pay.roles" name="browser" id="browser"    class="form-control" 
-    id="capacite" 
-    name="capacite" 
-    placeholder="Enter  le role   "
-    required
-   >
-    
-    <datalist id="browsers"  >
-      <option value="admin">
-      <option value="user">
-    
-    </datalist>
-    
-  </div>
 
 
 

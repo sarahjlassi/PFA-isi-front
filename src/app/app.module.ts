@@ -27,6 +27,7 @@ import { AuthService } from "./shared/auth/auth.service";
 import { AuthGuard } from "./shared/auth/auth-guard.service";
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import { UserComponent } from './user/user.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -38,7 +39,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, UserComponent],
+  declarations: [AppComponent, FullLayoutComponent, ContentLayoutComponent, UserComponent, ChatbotComponent],
   imports: [
     BrowserAnimationsModule,
     StoreModule.forRoot({}),

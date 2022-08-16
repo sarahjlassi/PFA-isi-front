@@ -6,6 +6,7 @@ import { User } from '../../models/user.model';
 import { UserService } from '../../service/user.service';
 
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms'
 
 import { ActivatedRoute, Router } from '@angular/router';
 const data: any = require('../../shared/data/chartist.json');
@@ -24,26 +25,40 @@ export class SmartTableComponent {
     pays:User[];
     pay:User;
     closeResult:string;
-
+    registerForm: FormGroup;
+    submitted = false;
     constructor(private route:ActivatedRoute,
         private router:Router,
         private userService:UserService,
+        private formBuilder: FormBuilder,
         private modalService: NgbModal
       )  { this.pay=new User();}
     ngOnInit() {
     
         this.userService.getListUsers().subscribe(data=>
-          this.pays=data
-          
-          );
-          
+          this.pays=data );
+        
+          this.registerForm = this.formBuilder.group({
+            username: ['', [Validators.required, Validators.minLength(3)]],
+            email: ['',[Validators.required, Validators.email]]  ,
+            password : ['', [Validators.required, Validators.minLength(6)]],
+             });
+             
       }
+
+      get f() { return this.registerForm.controls; }
 
       edit(User: User){
         this.pay = User;
       }
 
       onSubmit(){
+
+        this.submitted = true;
+        // stop here if form is invalid
+        if (this.registerForm.invalid) {
+          return;
+        }
         let rol=this.pay.roles
         console.log(rol)
     
@@ -52,6 +67,7 @@ export class SmartTableComponent {
       }
       gotoUserList() {
         this.router.navigate(['/dashboard/dashboard1']);
+        window.location.reload()
         
         
       }

@@ -28,7 +28,7 @@ import { AuthGuard } from "./shared/auth/auth-guard.service";
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import { UserComponent } from './user/user.component';
 import { ChatbotComponent } from './chatbot/chatbot.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: false
@@ -47,9 +47,9 @@ export function createTranslateLoader(http: HttpClient) {
     SharedModule,
     AngularDateTimePickerModule,
     HttpClientModule,
-    
-    ToastrModule.forRoot(),
+    ReactiveFormsModule,
     FormsModule,
+    ToastrModule.forRoot(),
     TabsModule.forRoot(),
     NgbModule.forRoot(),
     TranslateModule.forRoot({
@@ -78,3 +78,4 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+

@@ -9,6 +9,7 @@ import { Reservation } from 'app/models/reservation.model';
 
 
 
+
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -51,7 +52,7 @@ export class GridsComponent {
      
       this.registerForm = this.formBuilder.group({
         libelle: ['', [Validators.required, Validators.minLength(2)]],
-        capacite: ['',[Validators.required, Validators.maxLength(4)]]   });
+        capacite: ['',[Validators.required, Validators.minLength(1)]]   });
     }
 
     get f() { return this.registerForm.controls; }

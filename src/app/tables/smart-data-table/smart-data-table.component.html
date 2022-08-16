@@ -69,34 +69,54 @@
   <div class="modal-body">
     <div class="card my-5">
       <div class="card-body">
-        <form (ngSubmit)="onSubmit()" #libelleForm="ngForm">
+       
+          <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" #libelleForm="ngForm">
           <div class="form-group">
             <label for="login">Username</label>
             <input type="text" [(ngModel)]="pay.username" 
             class="form-control" 
             id="libelle" 
             name="libelle" 
+            formControlName="username"
             placeholder="Enter  username "
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
             required>
+
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+              <div *ngIf="f.username.errors.required">Ce champs est obligatoire !</div>
+              <div *ngIf="f.username.errors.minlength">le nom de l'utilisateur doit contenir au moins 3 caracteres !</div>
+
+          </div>
         </div>
         <div class="form-group">
           <label for="login">Email </label>
-          <input type="text" [(ngModel)]="pay.email" 
+          <input type="email" [(ngModel)]="pay.email" 
+          formControlName="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }" 
           class="form-control" 
-          id="capacite" 
-          name="capacite" 
+          id="email" 
+          name="email" 
           placeholder="Enter  l'email "
           required>
+
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Ce champs est obligatoire ! </div>
+            <div *ngIf="f.email.errors.email">l'email doit etre une adresse email valide !</div>
+        </div>
       </div>
 
       <div class="form-group">
         <label for="login">Password </label>
-        <input type="text" [(ngModel)]="pay.password" 
+        <input type="password" [(ngModel)]="pay.password" 
+        formControlName="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
         class="form-control" 
-        id="capacite" 
-        name="capacite" 
+        id="password "
+        name="password" 
         placeholder="Enter  un mot de passe  "
         required>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required" >Password is required</div>
+          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+      </div>
     </div>
   
 
@@ -110,7 +130,7 @@
     
        
         <div class="modal-footer">
-          <a href="javascript:void(0)" class="btn btn-raised gradient-ibiza-sunset"  (click)="onSubmit()" (click)="modal.close('Save click')">Submit</a>
+          <a href="javascript:void(0)" class="btn btn-raised gradient-ibiza-sunset"  (click)="onSubmit()" >Submit</a>
         </div>
       </form>
     </div>

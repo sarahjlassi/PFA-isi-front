@@ -71,21 +71,36 @@
   <div class="modal-body">
     <div class="card my-5">
       <div class="card-body">
-        <form (ngSubmit)="onSubmit()" #libelleForm="ngForm">
+        <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" #libelleForm="ngForm">
           <div class="form-group">
             <label for="login">Libelle </label>
             <input type="text" [(ngModel)]="pay.libelle" class="form-control" id="libelle" name="libelle"
-              placeholder="Enter  libelle " required>
+            formControlName="libelle" [ngClass]="{ 'is-invalid': submitted && f.libelle.errors }"
+
+            placeholder="Enter  libelle " required>
+            <div *ngIf="submitted && f.libelle.errors" class="invalid-feedback">
+              <div *ngIf="f.libelle.errors.required">Ce champs est obligatoire !</div>
+              <div *ngIf="f.libelle.errors.minlength">le nom de la salle doit contenir au moins 2 caracteres !</div>
+
+          </div>
+
           </div>
           <div class="form-group">
             <label for="login">capacite </label>
-            <input type="text" [(ngModel)]="pay.capacite" class="form-control" id="capacite" name="capacite"
+            <input type="number" [(ngModel)]="pay.capacite" class="form-control" id="capacite" name="capacite"
+            formControlName="capacite" [ngClass]="{ 'is-invalid': submitted && f.capacite.errors }"
               placeholder="Enter  capacite de la salle " required>
+
+              <div *ngIf="submitted && f.capacite.errors" class="invalid-feedback">
+                <div *ngIf="f.capacite.errors.required">Ce champs est obligatoire !</div>
+                <div *ngIf="f.capacite.errors.minlength">la capacité doit contenir au plus 4 chiffres !</div>
+
+            </div>
           </div>
 
           <div class="modal-footer">
             <a href="javascript:void(0)" class="btn btn-raised gradient-ibiza-sunset" (click)="onSubmit()"
-              (click)="modal.close('Save click')">Submit</a>
+            >Submit</a>
           </div>
         </form>
       </div>

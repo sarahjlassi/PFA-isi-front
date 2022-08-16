@@ -14,7 +14,7 @@ import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
 import { data } from 'app/shared/data/smart-data-table';
 import { User } from 'app/models/user.model';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-grids',
@@ -34,12 +34,13 @@ export class GridsComponent {
     message = '';
     currentPlayer=null;
 
-
+    registerForm: FormGroup;
+    submitted = false;
    
     constructor(private route:ActivatedRoute,
       private router:Router,
       private userService:SalleService,
-   
+      private formBuilder: FormBuilder,
       private modalService: NgbModal
     )  { this.pay=new Salle();}
   
@@ -48,11 +49,37 @@ export class GridsComponent {
       this.userService.getListSalles().subscribe(data=>this.pays=data)
       this.currentPlayer = {};
      
+      this.registerForm = this.formBuilder.group({
+        libelle: ['', [Validators.required, Validators.minLength(2)]],
+        capacite: ['',[Validators.required, Validators.maxLength(4)]]   });
     }
+
+    get f() { return this.registerForm.controls; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     refrech(){
       window.location.reload()
     }
     onSubmit(){
+      this.submitted = true;
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
       this.userService.addsalle(this.pay).subscribe
       (result => this.gotoUserList());
     }

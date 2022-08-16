@@ -1,5 +1,32 @@
+<!DOCTYPE html>
+<html>
 
-
+<head>
+    <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+    <script>
+        !(function () {
+            sessionStorage.clear();
+            let e = document.createElement("script"),
+                t = document.head || document.getElementsByTagName("body")[0];
+            (e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js"),
+                (e.async = !0),
+                (e.onload = () => {
+                    window.WebChat.default({
+                        initPayload: "/greet",
+                        customData: { language: "en-EN" },
+                        socketUrl: "http://localhost:5005",
+                        title: "Welcome",
+                        inputTextFieldHint: "Écrivez votre message",
+                        showMessageDate: true,
+                        
+                        params: { storage: "session" } 
+                    }, null);
+                }), t.insertBefore(e, t.firstChild);
+        })();
+    </script>
+</head>
+ 
+<body>
 <section id="user-profile">
   
   <div class="row">
@@ -276,6 +303,11 @@
     </div>
     
 </div>
+
+
 </section>
 
 <app-footer> </app-footer>
+</body>
+
+</html>
